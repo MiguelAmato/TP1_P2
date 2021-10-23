@@ -9,13 +9,13 @@ public class GamePrinter {
 
 	private static final String ROAD_BORDER_PATTERN = "â•�";
 
-	private static final String LANE_DELIMITER_PATTERN = "â”€ CABRRRRRRRRRRRON";
+	private static final String LANE_DELIMITER_PATTERN = "â”€";
 
 	private static final int CELL_SIZE = 7;
 
 	private static final int MARGIN_SIZE = 2;
 	
-	private static final String EXIT_MSG =  "Player leaves the game!";
+	private static final String EXIT_MSG =  "Player leaves the game! COMENTO UNA DESDE EL ECLIPSE DE AMATO";
 	
 	private String indentedRoadBorder;
 
