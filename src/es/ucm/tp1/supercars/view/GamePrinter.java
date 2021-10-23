@@ -15,7 +15,7 @@ public class GamePrinter {
 
 	private static final int MARGIN_SIZE = 2;
 	
-	private static final String EXIT_MSG =  "Player leaves the game! AMATO";
+	private static final String EXIT_MSG =  "Player leaves the game! sisi probando sisi";
 	
 	private String indentedRoadBorder;
 
