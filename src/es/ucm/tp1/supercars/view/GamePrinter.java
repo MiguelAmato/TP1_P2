@@ -9,7 +9,7 @@ public class GamePrinter {
 
 	private static final String ROAD_BORDER_PATTERN = "â•�";
 
-	private static final String LANE_DELIMITER_PATTERN = "â”€";
+	private static final String LANE_DELIMITER_PATTERN = "â”€ CABRRRRRRRRRRRON";
 
 	private static final int CELL_SIZE = 7;
 
