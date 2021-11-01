@@ -16,18 +16,34 @@ public abstract class Command {
 		new HelpCommand(),
 		new InfoCommand(),
 		new UpdateCommand(),
+		new MoveUpCommand(),
+		new MoveDownCommand(),
+		new ExitCommand(),
+		new ResetCommand(),
+		new TestCommand()
+		
 	};
 	/* @formatter:on */
 
-	public static Command getCommand(String[] commandWords, Level level) {
+	public static Command getCommand(String[] commandWords) { // TOBIAS ES GILIPOLLAS, PERO MUCHO.
 		Command command = null;
+		
 		// TODO Add your code
-		System.out.format("[ERROR]: %s%n%n", UNKNOWN_COMMAND_MSG);
+		
+		int i = 0;
+		
+		while(command == null && i < AVAILABLE_COMMANDS.length) {
+			command = AVAILABLE_COMMANDS[i].parse(commandWords);
+			i++;
+		}
+		
+		if (command == null)
+			System.out.format("[ERROR]: %s%n%n", UNKNOWN_COMMAND_MSG);
+		
 		return command;
 	}
 
-	private final String name;
-
+	private final String name;  
 	private final String shortcut;
 
 	private final String details;
@@ -43,8 +59,8 @@ public abstract class Command {
 
 	public abstract boolean execute(Game game);
 
-	protected boolean matchCommandName(String name) {
-		return this.shortcut.equalsIgnoreCase(name) || this.name.equalsIgnoreCase(name);
+	protected boolean matchCommandName(String name) { 
+		return this.shortcut.equalsIgnoreCase(name) || this.name.equalsIgnoreCase(name); 
 	}
 
 	protected Command parse(String[] words) {

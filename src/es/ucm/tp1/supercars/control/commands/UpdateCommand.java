@@ -26,7 +26,7 @@ public class UpdateCommand extends Command {
 
 	@Override
 	protected Command parse(String[] commandWords) {
-		if ("".equalsIgnoreCase(commandWords[0])) {
+		if ("".equalsIgnoreCase(commandWords[0]) || "none".equalsIgnoreCase(commandWords[0])) {
 			commandWords[0] = SHORTCUT;
 		}
 		return super.parse(commandWords);

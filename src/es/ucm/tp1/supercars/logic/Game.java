@@ -1,9 +1,9 @@
-package es.ucm.tp1.supercars.logic;
+package es.ucm.tp1.logic;
 
 import java.util.*;
 
-import es.ucm.tp1.supercars.control.Level;
-import es.ucm.tp1.supercars.logic.gameobjects.*;
+import es.ucm.tp1.control.Level;
+import es.ucm.tp1.gameObjects.*;
  
 public class Game {
     
@@ -21,17 +21,12 @@ public class Game {
     Player car;
     
     public Game(long seed, Level level) {
-    	this.cycle = 0;
     	this.seed = seed;
         this.level = level;
-        this.length = level.getLength();
-        this.width = level.getWidth();
-        this.car = new Player(0,(this.width/2),length);
-        this.coinList = new CoinList();
-        this.obstacleList = new ObstacleList();
+        reset();
     }
     
-    public void reset() {
+    public void reset() { // ¡HAY UN PROBLEMA EN EL RESET RELACIONADO AL ELLAPSED TIME!
     	this.cycle = 0;
         this.length = level.getLength();
         this.width = level.getWidth();
@@ -120,7 +115,6 @@ public class Game {
     }
    
     public void showInfo() {
-        
      	System.out.println("Available objects:");
         System.out.println(Player.INFO);
         System.out.println(Coin.INFO);
@@ -150,6 +144,7 @@ public class Game {
             }
     }
     
+    /*
     public void takeCoin() {  
     		 
 		boolean weGotIt = false;
@@ -165,9 +160,9 @@ public class Game {
 			 
 			i++;
 		}
-    }
+    } */
       
-    public String positionToString(int x, int y) { 
+    public String positionToString(int x, int y) { // HACER STATICS DE LOS ICONOS DE LOS OBJETOS (LA META NO)
         String ret;
         if(x == car.getX() && y == car.getY())   	
         	if(!obstacleList.isThereObstacle(x, y))
@@ -204,7 +199,7 @@ public class Game {
             
     }
     
-    public boolean update(String option) {
+    public boolean update(String option) { // SEGUN EL PROFESOR DIJO QUE PASARLE UN STRING AL GAME ES GRAVE
     	
     	boolean update = false;
         
@@ -214,28 +209,24 @@ public class Game {
                 update = true;
             }
         }
-        
         else if(option.equalsIgnoreCase("a")) {
             if( this.car.getY() < getRoadWidth() - 1) {
                 car.goDown();
                 update = true;
             }
         }
-            
-        
+             
         else if(option.equalsIgnoreCase("n") || option.equalsIgnoreCase("none") || option.equals("")) {
             car.moveForward();
             update = true;
         }
        
-        
         else if(option.equalsIgnoreCase("h") || option.equalsIgnoreCase("help")) {
             System.out.println();
             update = true;
         }
-        
-        takeCoin();
-        
+        if(coinList.playerAndCoin(car.getX(), car.getY()))
+        		car.setCoinCounter(car.getCoinCounter()+1);
         return update;
     }
         
