@@ -15,12 +15,9 @@ public class ExitCommand extends Command {
 		super(NAME, SHORTCUT, DETAILS, HELP);
 	}
 
-	@Override
 	public boolean execute(Game game) {
-		
-		boolean execute = false;
-		// TODO Auto-generated method stub
-		return execute;
+		game.exit();
+		return true;
 	}
 	
 	 

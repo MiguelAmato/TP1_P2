@@ -1,7 +1,5 @@
 package es.ucm.tp1.supercars.control;
 
-import es.ucm.tp1.supercars.control.Level;
-
 public enum Level {
 
 	TEST(10, 3, 8, 0.5, 0), EASY(30, 3, 8, 0.5, 0.5), HARD(100, 5, 6, 0.7, 0.3);

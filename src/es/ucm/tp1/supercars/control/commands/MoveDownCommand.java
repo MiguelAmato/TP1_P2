@@ -10,7 +10,7 @@ public class MoveDownCommand extends Command {
 
 	private static final String SHORTCUT = "a";
 
-	private static final String HELP = "gp down";
+	private static final String HELP = "go down";
 	
 	public MoveDownCommand() {
 		super(NAME, SHORTCUT, DETAILS, HELP);
@@ -18,10 +18,11 @@ public class MoveDownCommand extends Command {
 
 	@Override
 	
-	public boolean execute(Game game) {
-		boolean execute = false;
-		// TODO Auto-generated method stub
-		return execute;
+	public boolean execute(Game game) { // Puede que en vez de boolean sea un void
+		if (game.moveDown()) {
+			game.update();
+		}
+		return true;
 	}
 	
 	 

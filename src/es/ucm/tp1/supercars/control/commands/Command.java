@@ -25,7 +25,7 @@ public abstract class Command {
 	};
 	/* @formatter:on */
 
-	public static Command getCommand(String[] commandWords) { // TOBIAS ES GILIPOLLAS, PERO MUCHO.
+	public static Command getCommand(String[] commandWords) { 
 		Command command = null;
 		
 		// TODO Add your code

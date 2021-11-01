@@ -16,12 +16,10 @@ public class MoveUpCommand extends Command {
 	}
 
 	@Override 
-	public boolean execute(Game game) {
-		boolean execute = false;
-		
-		// TODO Auto-generated method stub
-		return execute;
+	public boolean execute(Game game) { // Puede que en vez de boolean sea un void
+		if(game.moveUp()) {
+			game.update();
+		}
+		return true;
 	}
-	
-	 
 }

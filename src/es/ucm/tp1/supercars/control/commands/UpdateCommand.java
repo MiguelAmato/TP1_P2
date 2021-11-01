@@ -16,15 +16,11 @@ public class UpdateCommand extends Command {
 		super(NAME, SHORTCUT, DETAILS, HELP);
 	}
 
-	@Override
 	public boolean execute(Game game) {
-		// TODO add your code
-		boolean execute = false;
-		
-		return execute;
+		game.update();
+		return true;
 	}
 
-	@Override
 	protected Command parse(String[] commandWords) {
 		if ("".equalsIgnoreCase(commandWords[0]) || "none".equalsIgnoreCase(commandWords[0])) {
 			commandWords[0] = SHORTCUT;
