@@ -7,19 +7,32 @@ import es.ucm.tp1.supercars.logic.gameobjects.*;
  
 public class Game {
     
+	
+	private long seed;
 	private int cycles;
+	private double random;
 	private boolean exit = false;
 	
 	Level level;
 	Player car;
-
+ 
 	public int getVisibility() {
 		return level.getVisibility();  
     }
-    
+    	
   	public int getRoadWidth() {
         return level.getWidth();
     }
+  	
+  	public int getRoadLength() {
+ 		return level.getLength();
+	}
+  	
+  	public int getRandomLane() {  // Este random no se puede poner aqui porque hace falta en otros metodos y no se puede pasar como parametro 
+  		Random random = new Random(seed);
+  		this.random = random.nextDouble();
+  		return (int)(random.nextDouble() * level.getWidth());
+  	}
 
 	public int getCarPosX() {
 		return car.getPosX();
@@ -74,6 +87,14 @@ public class Game {
 		 
 		// Habria que llamar al collider para sumar una moneda o acabar el juego
 	}
-    
+
+	public void tryToAddObject(GameObjects gameObject , double frequency) {
+ 		
+		if (random < frequency) {
+			
+         }
+		
+	}
+   
 }
 	

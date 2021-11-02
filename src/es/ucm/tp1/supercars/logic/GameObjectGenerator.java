@@ -1,6 +1,8 @@
 package es.ucm.tp1.supercars.logic;
 
 import es.ucm.tp1.supercars.logic.*;
+import es.ucm.tp1.supercars.logic.gameobjects.Coin;
+import es.ucm.tp1.supercars.logic.gameobjects.Obstacle;
 import es.ucm.tp1.supercars.control.*;
 
 
@@ -11,8 +13,8 @@ public class GameObjectGenerator {
 	public static void generateGameObjects(Game game, Level level) {
 
 		for (int x = game.getVisibility() / 2; x < game.getRoadLength(); x++) {
-			game.tryToAddObject(new Obstacle(game, x, game.getRandomLane()), level.obstacleFrequency());
-			game.tryToAddObject(new Coin(game, x, game.getRandomLane()), level.coinFrequency());
+			game.tryToAddObject(new Obstacle(game, x, game.getRandomLane()), level.getObstacleFrequency());
+			game.tryToAddObject(new Coin(game, x, game.getRandomLane()), level.getCoinFrequency());
 		}
 	}
 
