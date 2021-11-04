@@ -6,9 +6,8 @@ public class Player extends GameObjects {
 	
 	private int coinCounter;
 	private int distance;
-	
-	public final String skin = ">";
-	public final int INITIAL_COINS = 5;
+	public final String info = "[Car] the racing car";
+ 	public final int INITIAL_COINS = 5;
 
 	public Player(Game game, int x, int y, int distance) {
 		super(game, x, y);
@@ -23,6 +22,14 @@ public class Player extends GameObjects {
 	
 	public int getPosY() {
 		return y;
+	}
+	
+	public int getCoinCounter() {
+		return coinCounter;
+	}
+	
+	public int getDistance() {
+		return distance;
 	}
 	
 	public void moveForward() { // CUIDADO

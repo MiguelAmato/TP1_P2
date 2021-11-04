@@ -32,6 +32,8 @@ public class HelpCommand extends Command {
 
 // El generator es el unico que sabe los objetos disponibles, en el caso de info lo mejor que podemos hacer es:
 // hacer un getInfo en GameObjectsGenerator (De tipo string) 
+// tambien se puede poner en el gameprinter, con un metodo estatico, porque el gameprinter tiene la informacion de todoos los objetos, ya que tiene uqe saber cuantas monedas y obstaculos hay etc
+// pero mejor en el generator 
 // El unico que sabe que objetos hay es el GameObjectGenerator (El profesor dijo que es lo mas importante de la practica, por eso te lo repito tobilongalo)
 
 // Hacer un protected para acceder del command al helpcommand y asi poder acceder a la lista de available commands (O hacer un getter protected)

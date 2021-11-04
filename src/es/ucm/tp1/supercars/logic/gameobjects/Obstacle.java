@@ -4,6 +4,10 @@ import es.ucm.tp1.supercars.logic.Game;
 
 public class Obstacle extends GameObjects {
 
+	public final static String INFO = "[Obstacle] hits car";
+	private static int counter = 0;
+ 
+	
 	public Obstacle(Game game, int x, int y) {
 		super(game, x, y);
 		symbol = "░";
@@ -16,6 +20,10 @@ public class Obstacle extends GameObjects {
 	public int getY() {
 		return y;		
 	}
+	
+	public int getObsCounter() {
+		return counter;
+	}	
 	
 	@Override
 	public boolean doCollision() {
@@ -31,7 +39,7 @@ public class Obstacle extends GameObjects {
 
 	@Override
 	public void onEnter() {
-		// TODO Auto-generated method stub
+		counter += 1;
 		
 	}
 
@@ -43,7 +51,7 @@ public class Obstacle extends GameObjects {
 
 	@Override
 	public void onDelete() {
-		// TODO Auto-generated method stub
+		counter -= 1;
 		
 	}
 

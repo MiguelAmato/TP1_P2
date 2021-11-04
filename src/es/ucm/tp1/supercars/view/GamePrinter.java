@@ -1,6 +1,7 @@
 package es.ucm.tp1.supercars.view;
 
 import es.ucm.tp1.supercars.logic.Game;
+import es.ucm.tp1.supercars.logic.gameobjects.*;
 import es.ucm.tp1.supercars.utils.*;
 
 public class GamePrinter {
@@ -34,6 +35,9 @@ public class GamePrinter {
 	public String newLine; 
 
 	protected Game game;
+	protected Coin coin;
+	protected Obstacle obstacle;
+	protected Player car;
 	
 	public GamePrinter(Game game) {
 		this.game = game;
@@ -57,12 +61,12 @@ public class GamePrinter {
 
 
 	private String getInfo() {
-		String s = "Distance: " + game.getDistance() + "\n"
-				+ "Coins: " + game.getCoinCounter() + "\n"
-				+ "Cycle: " + game.getCycle() + "\n"
-				+ "Total obstacles: " + game.getObsCounter() + "\n"
-				+ "Total coins: " + game.getTotalCoins() 
-				; 
+		String s = "Distance: " + car.getDistance() + "\n"
+				+ "Coins: " + car.getCoinCounter() + "\n"
+				+ "Cycle: " + game.getCycles() + "\n"
+				+ "Total obstacles: " + obstacle.getObsCounter() + "\n"
+				+ "Total coins: " + coin.getCoinCounter() ;
+		
 		if (!game.getTest()) {
 			s = s + ("\nElapsed Time: " + game.getTime() + " s"); 
 		}
@@ -86,7 +90,7 @@ public class GamePrinter {
 		
 		for (int y = 0; y < game.getRoadWidth(); y++) {
 			str.append(this.margin).append(verticalDelimiter);
-			for (int x = game.getPosX(); x < game.getVisibility() + game.getPosX(); x++) { 
+			for (int x = game.getCarPosX(); x < game.getVisibility() + game.getCarPosX(); x++) { 
 				str.append(StringUtils.centre(game.positionToString(x, y), CELL_SIZE)).append(verticalDelimiter);
 			}
 			if (y <  game.getRoadWidth() - 1) {

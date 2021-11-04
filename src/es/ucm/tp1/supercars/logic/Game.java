@@ -1,10 +1,15 @@
 package es.ucm.tp1.supercars.logic;
 
+
+
 import java.util.*;
 
 import es.ucm.tp1.supercars.control.Level;
-import es.ucm.tp1.supercars.logic.gameobjects.*;
+import es.ucm.tp1.supercars.logic.gameobjects.*; 
+
  
+
+
 public class Game {
     
 	
@@ -15,6 +20,7 @@ public class Game {
 	
 	Level level;
 	Player car;
+	GameObjectContainer container;
  
 	public int getVisibility() {
 		return level.getVisibility();  
@@ -40,6 +46,10 @@ public class Game {
 	
 	public int getCarPosY() {
 		return car.getPosY();
+	}
+	
+	public int getCycles() {
+		return cycles;
 	}
 	
 	public boolean moveUp() {
@@ -89,12 +99,13 @@ public class Game {
 	}
 
 	public void tryToAddObject(GameObjects gameObject , double frequency) {
- 		
 		if (random < frequency) {
-			
-         }
-		
+			container.addObject(gameObject);
+        }
 	}
+	
+	
+	
    
 }
 	
