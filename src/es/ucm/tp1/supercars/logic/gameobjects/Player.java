@@ -1,29 +1,24 @@
 package es.ucm.tp1.supercars.logic.gameobjects;
 
+import es.ucm.tp1.supercars.logic.Collider;
 import es.ucm.tp1.supercars.logic.Game;
 
-public class Player extends GameObjects {
+public class Player extends GameObjects{
 	
 	private int coinCounter;
 	private int distance;
 	public final String info = "[Car] the racing car";
  	public final int INITIAL_COINS = 5;
-
+ 	 
+ 	
+ 	
 	public Player(Game game, int x, int y, int distance) {
 		super(game, x, y);
 		symbol = ">";
 		this.coinCounter = INITIAL_COINS;
 		this.distance = distance;
 	}
-	
-	public int getPosX() {
-		return x;
-	}
-	
-	public int getPosY() {
-		return y;
-	}
-	
+		
 	public int getCoinCounter() {
 		return coinCounter;
 	}
@@ -32,7 +27,7 @@ public class Player extends GameObjects {
 		return distance;
 	}
 	
-	public void moveForward() { // CUIDADO
+	public void moveForward() {  
 		x = x + 1;
 	}
 	
@@ -48,9 +43,14 @@ public class Player extends GameObjects {
 		y = y + 1;
 	}
 	
-
 	public boolean doCollision() {
-		return false;
+		
+			Collider other = game.getObjectInPosition(x, y);
+			
+			if (other != null) {
+			return other.receiveCollision(this);
+			}
+			return false;
 	}
 
 	public boolean receiveCollision(Player player) {
@@ -70,7 +70,33 @@ public class Player extends GameObjects {
 	}
 
 	public boolean isAlive() {
-		return false;
+		return alive;
+	}
+	
+	public void takeCoin() {
+		
+		coinCounter += 1;	
+	}
+
+	
+	public void deadOrALive() {
+		
+		if(alive) {
+			symbol = ">";
+		}
+		
+		else {
+			symbol = "@";
+		} 
+			
+			
+		
+		
+	}
+	
+	public void kill() {
+		 alive = false;
+		
 	}
 	
 }

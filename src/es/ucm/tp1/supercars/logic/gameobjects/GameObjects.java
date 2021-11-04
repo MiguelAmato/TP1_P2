@@ -28,6 +28,10 @@ public abstract class GameObjects implements Collider{
 		return y;
 	}
 	
+	public boolean isInPosition(int x, int y) {
+		return this.x == x && this.y == y;
+	}
+	
 	public abstract void onEnter();
 	public abstract void update();
 	public abstract void onDelete();

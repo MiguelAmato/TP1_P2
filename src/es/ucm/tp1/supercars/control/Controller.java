@@ -1,7 +1,10 @@
 package es.ucm.tp1.supercars.control;
 
 import java.util.Scanner;
+
+import es.ucm.tp1.supercars.control.commands.Command;
 import es.ucm.tp1.supercars.logic.Game;
+import es.ucm.tp1.supercars.logic.GameObjectGenerator;
 import es.ucm.tp1.supercars.view.GamePrinter;
 
 
@@ -36,11 +39,15 @@ public class Controller {
 	};
 	/* @formatter:off */
 
+	 
+	
 	private Game game;
 
 	private Scanner scanner;
 	
 	private GamePrinter printer;
+	
+	private Level level;
 
 	public Controller(Game game, Scanner scanner) {
 		this.game = game;
@@ -59,68 +66,36 @@ public class Controller {
 	}
 
 	public void run() {
+		
 		long ini = 0;
 		long end = 0;
 		double time;
+		boolean refreshDisplay = false;
 		
-		game.objectPlacement();
+		game.initializeGame();
+	 
+		game.objectsPlacement();
+	 
 		printGame();
 		
-		while(!this.game.end() && !exit) {
+		while (!game.isFinished()){
 			
-			System.out.print(PROMPT);
-			
-			option = scanner.nextLine();
-			
-			if (game.getCycle() > 0) {
-				end = System.currentTimeMillis();
-				time = (double)(end - ini) / 1000;
-				game.setTime(time);
-			}
-
-			showExecution();
-			
-			if(option.equalsIgnoreCase("q") || option.equalsIgnoreCase("a") || option.equalsIgnoreCase("n") || option.equalsIgnoreCase("none") || option.equalsIgnoreCase("")) {
-				while(!this.game.update(option)) {
-					System.out.println(ERROR + INVALID  + "\n\n" + PROMPT);
-					option = scanner.nextLine();
-				}
-				
-				game.setCycle(game.getCycle() + 1);
-				
-				if (game.getCycle() == 1) {
-					ini = System.currentTimeMillis();
-				}
+			if (refreshDisplay ) {
 				printGame();
 			}
+			refreshDisplay = false;
 			
-			else if(option.equalsIgnoreCase("h") || option.equalsIgnoreCase("help"))
-				for(int i = 0; i < 9; i++) {
-					System.out.println(HELP[i]);
-				}
+			System.out.println(PROMPT);
 			
-			else if (option.equalsIgnoreCase("i") || option.equalsIgnoreCase("info")) {
-				this.game.showInfo();
-			}
-			
-			else if(option.equalsIgnoreCase("e") || option.equalsIgnoreCase("exit")) {
-				exit = true;
-				game.setExit(exit);
-			}
-			
-			else if(option.equalsIgnoreCase("r") || option.equalsIgnoreCase("reset")) {
-				game.reset();
-				game.objectPlacement();
-				printGame();
-			}
-			
-			else if(option.equalsIgnoreCase("t") || option.equalsIgnoreCase("test")) {
-				game.setTest(true);
-				printGame();
-			}
-			
-			else {				
-				System.out.println(ERROR + UNKNOWN_COMMAND_MSG + "\n");
+			String s = scanner.nextLine();
+			String[] parameters = s.toLowerCase().trim().split(" ");
+			System.out.println("[DEBUG] Executing: " + s);
+			Command command = Command.getCommand(parameters);
+			if (command != null) {
+				refreshDisplay = command.execute(game);
+			} 
+			else {
+				System.out.println("[ERROR]: "+ UNKNOWN_COMMAND_MSG);
 			}
 		}
  		printer.endMessage(); 

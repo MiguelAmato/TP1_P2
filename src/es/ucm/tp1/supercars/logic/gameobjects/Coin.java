@@ -10,7 +10,7 @@ public class Coin extends GameObjects {
 	
 	public Coin(Game game, int x, int y) {
 		super(game, x, y);
-		symbol = "¢";
+		symbol = "Â¢";
 	}
 	
 	public int getX() {
@@ -38,9 +38,19 @@ public class Coin extends GameObjects {
 		return false;
 	}
 
-	@Override
 	public boolean receiveCollision(Player player) {
-		return false;
+		
+		boolean collision = false;
+		
+		if(player.isInPosition(x, y)) { // Cuidado
+			
+			collision = true;
+			alive = false;
+			game.takeCoin();
+			onDelete();
+		}
+		
+		return collision;
 	}
 
 	@Override

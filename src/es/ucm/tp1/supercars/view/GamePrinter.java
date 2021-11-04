@@ -67,11 +67,12 @@ public class GamePrinter {
 				+ "Total obstacles: " + obstacle.getObsCounter() + "\n"
 				+ "Total coins: " + coin.getCoinCounter() ;
 		
-		if (!game.getTest()) {
-			s = s + ("\nElapsed Time: " + game.getTime() + " s"); 
-		}
+		//if (!game.getTest()) {
+			//s = s + ("\nElapsed Time: " + game.getTime() + " s"); 
+		//}
 		
 		return s;
+		 
 	}
 
 
@@ -104,7 +105,7 @@ public class GamePrinter {
 
 	public void endMessage(){ 
 		
-		System.out.print(GAME_OVER_MSG + " "); 
+		/*System.out.print(GAME_OVER_MSG + " "); 
 		
 		if (game.getExit()) 
 			System.out.println(EXIT_MSG);
@@ -113,5 +114,7 @@ public class GamePrinter {
 		else 
 			System.out.println(CRASH_MSG);
 		
+	}*/
 	}
+	
 }

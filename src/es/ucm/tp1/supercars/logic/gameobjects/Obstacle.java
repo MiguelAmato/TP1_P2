@@ -24,17 +24,22 @@ public class Obstacle extends GameObjects {
 	public int getObsCounter() {
 		return counter;
 	}	
-	
-	@Override
+	 
 	public boolean doCollision() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
 	public boolean receiveCollision(Player player) {
-		// TODO Auto-generated method stub
-		return false;
+		 
+		boolean collision = false;
+		
+		if(player.isInPosition(x,y)) {
+			
+			player.kill();   // Esto se puede poner así seguro?
+			collision = true;
+		}
+		
+		return collision;
 	}
 
 	@Override
