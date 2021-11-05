@@ -97,7 +97,12 @@ public class Controller {
 			else {
 				System.out.println("[ERROR]: "+ UNKNOWN_COMMAND_MSG);
 			}
+			
+ 			
+			 
 		}
+		printGame();
  		printer.endMessage(); 
+ 		
 	}
  }

@@ -11,6 +11,7 @@ public class Coin extends GameObjects {
 	public Coin(Game game, int x, int y) {
 		super(game, x, y);
 		symbol = "¢";
+		deadSymbol = "";
 	}
 	
 	public int getX() {
@@ -21,7 +22,7 @@ public class Coin extends GameObjects {
 		return y;		
 	}
 	
-	public int getCoinCounter() {
+	public static int getCoinCounter() {
 		return counter;
 	}
 	

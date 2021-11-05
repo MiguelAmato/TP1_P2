@@ -12,11 +12,12 @@ public class Player extends GameObjects{
  	 
  	
  	
-	public Player(Game game, int x, int y, int distance) {
+	public Player(Game game, int x, int y) {
 		super(game, x, y);
 		symbol = ">";
+		deadSymbol = "@";
 		this.coinCounter = INITIAL_COINS;
-		this.distance = distance;
+		distance = game.getRoadLength();
 	}
 		
 	public int getCoinCounter() {
@@ -78,25 +79,8 @@ public class Player extends GameObjects{
 		coinCounter += 1;	
 	}
 
-	
-	public void deadOrALive() {
-		
-		if(alive) {
-			symbol = ">";
-		}
-		
-		else {
-			symbol = "@";
-		} 
-			
-			
-		
-		
-	}
-	
 	public void kill() {
 		 alive = false;
-		
 	}
 	
 }

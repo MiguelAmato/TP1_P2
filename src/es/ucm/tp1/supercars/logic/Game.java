@@ -26,7 +26,9 @@ public class Game {
 	Random random;
 	
 	
- 
+	public final String GOAL = "¦";
+	
+	
 	
 	public Game (long seed, Level level) {
 		
@@ -108,11 +110,9 @@ public class Game {
 	    }
 	    
 	    else {
-	    
-		   
-		        
+	  
 		    if (x == length){
-			   	ret = "¦";
+			   	ret = GOAL;
 		     }
 		        
 	        else {
@@ -130,9 +130,9 @@ public class Game {
 	}
 	
 	
-	public boolean isFinished() { // Esto esta como booleano del while principal en el run 
+	public boolean isFinished() {   
 		boolean isFinished = false;
-		if (exit || !car.isAlive()) {
+		if (exit || !car.isAlive() || car.getX() == length + 1) {
 			isFinished = true;
 		}
 		return isFinished;
@@ -145,12 +145,6 @@ public class Game {
 		car.doCollision();
 		container.deleteObject();
 		
-		 
-		// Si la pos del jugador coincide con la de una moneda u objeto muro
-			// En caso de que sea una moneda la borras
-			// En caso de que sea un muro pos te mueres
-		 
-		// Habria que llamar al collider para sumar una moneda o acabar el juego
 	}
 
 	public void tryToAddObject(GameObjects gameObject , double frequency) {
@@ -177,17 +171,24 @@ public class Game {
 		cycles = 0;
 		length = level.getLength();
 	    width = level.getWidth();
-		car = new Player(this,0, width/2,length); 
+		car = new Player(this,0, width/2); 
         container = new GameObjectContainer();
         random = new Random(seed);
-        
-          
-		
+        	
 	}
-	
-	
-	
-	
-   
+
+	public String getInfoPlayer() {
+		
+		return  "Distance: " + car.getDistance() + "\n"
+				+ "Coins: " + car.getCoinCounter() + "\n";
+	}
+
+	public boolean getExit() {
+		return exit;
+	}
+
+	public boolean hasWon() {
+		return car.isAlive();
+	}
 }
 	

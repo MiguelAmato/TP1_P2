@@ -11,6 +11,7 @@ public class Obstacle extends GameObjects {
 	public Obstacle(Game game, int x, int y) {
 		super(game, x, y);
 		symbol = "░";
+		deadSymbol = "";
 	}
 	
 	public int getX() {
@@ -21,7 +22,7 @@ public class Obstacle extends GameObjects {
 		return y;		
 	}
 	
-	public int getObsCounter() {
+	public static int getObsCounter() {
 		return counter;
 	}	
 	 

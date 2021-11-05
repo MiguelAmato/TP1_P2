@@ -61,17 +61,19 @@ public class GamePrinter {
 
 
 	private String getInfo() {
-		String s = "Distance: " + car.getDistance() + "\n"
-				+ "Coins: " + car.getCoinCounter() + "\n"
+		String s =  game.getInfoPlayer()
 				+ "Cycle: " + game.getCycles() + "\n"
-				+ "Total obstacles: " + obstacle.getObsCounter() + "\n"
-				+ "Total coins: " + coin.getCoinCounter() ;
+				+ "Total obstacles: " + Obstacle.getObsCounter() + "\n"
+				+ "Total coins: " + Coin.getCoinCounter() ;
+				 
 		
+	 
 		//if (!game.getTest()) {
 			//s = s + ("\nElapsed Time: " + game.getTime() + " s"); 
 		//}
 		
 		return s;
+	//	return "";
 		 
 	}
 
@@ -105,7 +107,7 @@ public class GamePrinter {
 
 	public void endMessage(){ 
 		
-		/*System.out.print(GAME_OVER_MSG + " "); 
+		System.out.print(GAME_OVER_MSG + " "); 
 		
 		if (game.getExit()) 
 			System.out.println(EXIT_MSG);
@@ -114,7 +116,7 @@ public class GamePrinter {
 		else 
 			System.out.println(CRASH_MSG);
 		
-	}*/
 	}
-	
 }
+	
+
