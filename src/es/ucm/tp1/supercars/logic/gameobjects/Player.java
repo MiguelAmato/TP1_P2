@@ -4,10 +4,9 @@ import es.ucm.tp1.supercars.logic.Collider;
 import es.ucm.tp1.supercars.logic.Game;
 
 public class Player extends GameObjects{
-	
 	private int coinCounter;
 	private int distance;
-	public final String info = "[Car] the racing car";
+	public final static String INFO = "[Car] the racing car";
  	public final int INITIAL_COINS = 5;
  	 
  	

@@ -73,4 +73,8 @@ public class Coin extends GameObjects {
 		return alive;
 	}
 
+	public static void reset() {
+		counter = 0;
+	}
+
 }

@@ -41,8 +41,10 @@ public class GamePrinter {
 	
 	public GamePrinter(Game game) {
 		this.game = game;
-		
-
+		printGame();
+	}
+	
+	private void printGame() {
 		margin = StringUtils.repeat(SPACE, MARGIN_SIZE);
 
 		String roadBorder = ROAD_BORDER_PATTERN + StringUtils.repeat(ROAD_BORDER_PATTERN, (CELL_SIZE + 1) *  game.getVisibility());
@@ -54,27 +56,27 @@ public class GamePrinter {
 		indentedLlanesSeparator = String.format("%n%s%s%n", margin, lanesSeparator);
 		newLine =  System.getProperty("line.separator");
 		
-
 		newLine =  System.getProperty("line.separator");
 	}
 	
-
-
 	private String getInfo() {
-		String s =  game.getInfoPlayer()
+		return 	game.getInfoPlayer()
 				+ "Cycle: " + game.getCycles() + "\n"
 				+ "Total obstacles: " + Obstacle.getObsCounter() + "\n"
-				+ "Total coins: " + Coin.getCoinCounter() ;
-				 
-		
-	 
-		//if (!game.getTest()) {
-			//s = s + ("\nElapsed Time: " + game.getTime() + " s"); 
-		//}
-		
-		return s;
-	//	return "";
-		 
+				+ "Total coins: " + Coin.getCoinCounter() 
+				+ showTime();
+	}
+	
+	private String showTime() {
+		if (!game.getTest()) {
+			if (game.getCycles() == 0) {
+				return "\nElapsed Time: 0,00 s";
+			}
+			else {
+				return "\nElapsed Time: " + (((double)System.currentTimeMillis() - game.getInitialTime()) / 1000)  + " s";
+			}
+		}
+		return "";
 	}
 
 
@@ -82,7 +84,7 @@ public class GamePrinter {
 		StringBuilder str = new StringBuilder();
 
 		// Game Status
-		
+		printGame();
 		str.append(getInfo());
 		
 		// Paint game

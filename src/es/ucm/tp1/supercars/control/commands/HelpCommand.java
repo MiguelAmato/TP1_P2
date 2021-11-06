@@ -19,12 +19,12 @@ public class HelpCommand extends Command {
 
 	@Override
 	public boolean execute(Game game) {
-		StringBuilder buffer = new StringBuilder("Available commands:");
-
-		// TODO Add your code
-
-		System.out.println(buffer.toString());
-
+		StringBuilder buffer = new StringBuilder("Available commands: \n");
+		for (int i = 0; i < getAvailableCommands().length; i++) {
+			buffer.append(getAvailableCommands()[i].getDetails() + ": ");
+			buffer.append(getAvailableCommands()[i].getHelp() + "\n");
+		}
+		System.out.print(buffer.toString());
 		return false;
 	}
 
@@ -38,6 +38,4 @@ public class HelpCommand extends Command {
 
 // Hacer un protected para acceder del command al helpcommand y asi poder acceder a la lista de available commands (O hacer un getter protected)
 
-// En el reset se pasa el Level para poder conservar la semilla y la dificultad del juego, hay que hacer tambien un nuevo random en el reset para que todo este en su lugar
-// a la hora de volver a inicializar. 
 

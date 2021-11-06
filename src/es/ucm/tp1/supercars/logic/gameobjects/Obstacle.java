@@ -66,4 +66,8 @@ public class Obstacle extends GameObjects {
 		return alive;
 	}
 
+	public static void reset() {
+		counter = 0;
+	}
+
 }

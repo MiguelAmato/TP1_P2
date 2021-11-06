@@ -66,15 +66,9 @@ public class Controller {
 	}
 
 	public void run() {
-		
-		long ini = 0;
-		long end = 0;
-		double time;
 		boolean refreshDisplay = false;
 		
 		game.initializeGame();
-	 
-		game.objectsPlacement();
 	 
 		printGame();
 		
@@ -85,7 +79,7 @@ public class Controller {
 			}
 			refreshDisplay = false;
 			
-			System.out.println(PROMPT);
+			System.out.print(PROMPT);
 			
 			String s = scanner.nextLine();
 			String[] parameters = s.toLowerCase().trim().split(" ");
@@ -97,9 +91,6 @@ public class Controller {
 			else {
 				System.out.println("[ERROR]: "+ UNKNOWN_COMMAND_MSG);
 			}
-			
- 			
-			 
 		}
 		printGame();
  		printer.endMessage(); 

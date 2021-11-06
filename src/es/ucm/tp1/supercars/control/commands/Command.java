@@ -1,13 +1,7 @@
 package es.ucm.tp1.supercars.control.commands;
-
-import java.util.Arrays;
-
-import es.ucm.tp1.supercars.control.Level;
 import es.ucm.tp1.supercars.logic.Game;
 
 public abstract class Command {
-
-	private static final String UNKNOWN_COMMAND_MSG = "Unknown command";
 
 	protected static final String INCORRECT_NUMBER_OF_ARGS_MSG = "Incorrect number of arguments";
 
@@ -24,21 +18,19 @@ public abstract class Command {
 		
 	};
 	/* @formatter:on */
+	
+	protected Command[] getAvailableCommands() {
+		return AVAILABLE_COMMANDS;
+	}
 
 	public static Command getCommand(String[] commandWords) { 
 		Command command = null;
-		
-		// TODO Add your code
-		
 		int i = 0;
 		
 		while(command == null && i < AVAILABLE_COMMANDS.length) {
 			command = AVAILABLE_COMMANDS[i].parse(commandWords);
 			i++;
 		}
-		
-		if (command == null)
-			System.out.format("[ERROR]: %s%n%n", UNKNOWN_COMMAND_MSG);
 		
 		return command;
 	}
@@ -49,6 +41,14 @@ public abstract class Command {
 	private final String details;
 
 	private final String help;
+	
+	protected String getDetails() {
+		return details;
+	}
+	
+	protected String getHelp() {
+		return help;
+	}
 
 	public Command(String name, String shortcut, String details, String help) {
 		this.name = name;
@@ -74,7 +74,5 @@ public abstract class Command {
 		}
 		return null;
 	}
-
-	// TODO Add your code
 
 }

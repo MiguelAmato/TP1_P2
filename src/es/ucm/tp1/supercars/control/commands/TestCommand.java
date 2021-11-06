@@ -10,7 +10,7 @@ public class TestCommand extends Command {
 
 	private static final String SHORTCUT = "t";
 
-	private static final String HELP ="enables test mode";
+	private static final String HELP = "enables test mode";
 	
 	public TestCommand() {
 		super(NAME, SHORTCUT, DETAILS, HELP);
@@ -18,11 +18,7 @@ public class TestCommand extends Command {
 
 	@Override
 	public boolean execute(Game game) {
-		boolean execute = false;
-		// TODO Auto-generated method stub
-		return execute;
+		game.toggleTest();
+		return true;
 	}
-	
-	 
-	
 }
