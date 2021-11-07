@@ -1,4 +1,5 @@
 package es.ucm.tp1.supercars.logic;
+
 import es.ucm.tp1.supercars.logic.gameobjects.Coin;
 import es.ucm.tp1.supercars.logic.gameobjects.Obstacle;
 import es.ucm.tp1.supercars.logic.gameobjects.Player;
@@ -22,7 +23,7 @@ public class GameObjectGenerator {
 		StringBuilder info = new StringBuilder();
 		info.append(Player.INFO + "\n");
 		info.append(Coin.INFO + "\n");
-		info.append(Obstacle.INFO + "\n");
+		info.append(Obstacle.INFO);
 		return info;
 	}
 

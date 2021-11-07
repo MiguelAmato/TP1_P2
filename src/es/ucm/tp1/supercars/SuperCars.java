@@ -9,18 +9,12 @@ import es.ucm.tp1.supercars.logic.Game;
 public class SuperCars {
 
 	private static final String VERSION = "1.0";
-
 	private static final String USAGE_MSG = "Usage: Super cars <level> [<seed>]";
-
 	private static final String WELCOME_MSG = String.format("Super cars %s\n\n", VERSION);
-
 	private static final String LEVEL_INFO_MSG = "Level must be one of: " + Level.all(", ");
-
 	private static final String SEED_IS_NUMBER_MSNG = "the seed must be a number";
-
 	private static final String SEED_INFO_MSG = "Random generator initialized with seed: ";
 
-	
 	private static void usage() {
 		System.out.println(USAGE_MSG);
 		System.out.println("\t<level>: " + Level.all(", "));
@@ -43,9 +37,8 @@ public class SuperCars {
 					} else {
 						seed = System.currentTimeMillis() % 1000;
 					}
-
+				
 					System.out.print(WELCOME_MSG);
-
 					System.out.println("Level: " + level.name());
 					System.out.println(SEED_INFO_MSG + seed);
 

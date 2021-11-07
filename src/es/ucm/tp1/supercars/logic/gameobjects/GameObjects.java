@@ -4,6 +4,7 @@ import es.ucm.tp1.supercars.logic.Collider;
 import es.ucm.tp1.supercars.logic.Game;
 
 public abstract class GameObjects implements Collider{
+	
 	protected int x, y;
 	protected boolean alive;
 	protected Game game;
@@ -50,5 +51,4 @@ public abstract class GameObjects implements Collider{
 			return getDeadSymbol();
 		}
 	}
-	
 }

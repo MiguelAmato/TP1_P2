@@ -37,5 +37,4 @@ public class StringUtils {
 		
 	    return String.format("%s%s%s", repeat(paddingChar, paddingLeft), text, repeat(paddingChar, paddingRight));
 	}
-
 }

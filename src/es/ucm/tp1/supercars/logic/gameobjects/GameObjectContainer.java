@@ -23,14 +23,11 @@ public class GameObjectContainer {
 	}
 	
 	public List<GameObjects> deleteObject () {
-		
 		List<GameObjects> list = new ArrayList<>() ;
-		 
-		for(int i = 0; i < list.size(); i++) {  // Hay que cambiar este bucle for para ponerlo con lo de los dos puntos / claro
+		for(int i = 0; i < list.size(); i++) {  
 			if(gameObjects.get(i).alive)
 				list.add(gameObjects.get(i));
 		}
-		
 		return list;
 	}
 	
@@ -45,12 +42,7 @@ public class GameObjectContainer {
 		}
 		return object;
 	}
-	
-	
-	public int getCounter() {
-		return objectCounter;
-	}
-
+ 
 	public String getSymbolfrom(int x, int y) {
 		String ret = "";
 		int i = 0;

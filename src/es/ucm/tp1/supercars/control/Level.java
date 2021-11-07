@@ -5,13 +5,9 @@ public enum Level {
 	TEST(10, 3, 8, 0.5, 0), EASY(30, 3, 8, 0.5, 0.5), HARD(100, 5, 6, 0.7, 0.3);
 
 	private int length;
-
 	private int width;
-
 	private int visibility;
-
 	private double coinFrequency;
-
 	private double obstacleFrequency;
 
 	private Level(int length, int width, int visibility, double obstacleFrequency, double coinFrequency) {
@@ -22,8 +18,6 @@ public enum Level {
 		this.coinFrequency = coinFrequency;
 	}
 
-	// TODO fill your code
-	
 	public static Level valueOfIgnoreCase(String inputString) {
 		for (Level level : Level.values()) {
 			if (level.name().equalsIgnoreCase(inputString)) {
@@ -49,15 +43,19 @@ public enum Level {
 	public int getVisibility() {
 		return visibility;
 	}
+	
 	public int getWidth() {
 		return width;
 	}
+	
 	public int getLength(){
 		return length;
 	}
+	
 	public double getCoinFrequency() {
 		return coinFrequency;
 	}
+	
 	public double getObstacleFrequency() {
 		return obstacleFrequency;
 	}
