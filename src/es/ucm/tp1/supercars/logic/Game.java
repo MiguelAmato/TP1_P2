@@ -128,7 +128,7 @@ public class Game {
         return ret;
  	}
 
-	public Collider getColliderInPosition(int x, int y) {  
+	public GameObjects getObjectInPosition(int x, int y) {  
 		return container.isThereAnObject(x,y);
 	}
 	

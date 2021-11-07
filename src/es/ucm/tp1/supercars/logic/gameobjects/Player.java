@@ -19,7 +19,7 @@ public class Player extends GameObjects{
 	}
 		
 	public boolean doCollision() {
-		Collider other = game.getColliderInPosition(x, y);
+		Collider other = game.getObjectInPosition(x, y);
 		if (other != null) {
 		return other.receiveCollision(this);
 		}
